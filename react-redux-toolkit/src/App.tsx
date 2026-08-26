@@ -2,6 +2,7 @@ import "./App.css";
 import Counter from "./components/counter/Counter";
 import CounterWithType from "./components/counter/CounterWithType";
 import Student from "./components/student/Student";
+import FetchSingleUser from "./components/user/FetchSingleUser";
 import User from "./components/user/User";
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
       <Student />
       <br />
       <User />
+      <br />
+      <FetchSingleUser />
     </>
   );
 }

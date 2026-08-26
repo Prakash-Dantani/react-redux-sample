@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { clearUsers, fetchUsers } from "../../features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { fetchSingleUser } from "../../features/user/fetchSingleUser";
 
 const User = () => {
   const users = useAppSelector((state) => state.user.users);
@@ -42,7 +43,14 @@ const User = () => {
               <td>{user?.email}</td>
               <td>{user?.phone}</td>
               <td>{user?.website}</td>
-              <td></td>
+              <td>
+                <button
+                  className="btn"
+                  onClick={() => dispatch(fetchSingleUser(user.id))}
+                >
+                  View
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

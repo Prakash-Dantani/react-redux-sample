@@ -4,7 +4,7 @@ import {
   type PayloadAction,
 } from "@reduxjs/toolkit";
 
-interface User {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -12,7 +12,7 @@ interface User {
   phone?: string;
   website?: string;
 }
-interface UserState {
+export interface UserState {
   users: User[];
   loading: boolean;
   error: string | null;
@@ -68,5 +68,5 @@ const userSlice = createSlice({
 });
 
 export const { clearUsers } = userSlice.actions;
-
+export const userInitialState = initialState;
 export default userSlice.reducer;
