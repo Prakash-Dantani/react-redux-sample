@@ -1,5 +1,11 @@
 import { useEffect } from "react";
-import { clearUsers, fetchUsers } from "../../features/user/userSlice";
+import {
+  clearUsers,
+  createUser,
+  deleteUSer,
+  fetchUsers,
+  updateUser,
+} from "../../features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { fetchSingleUser } from "../../features/user/SingleUserSlice";
 
@@ -41,6 +47,20 @@ const User = () => {
         <button className="btn" onClick={() => dispatch(clearUsers())}>
           Clear List
         </button>
+        <button
+          className="btn"
+          onClick={() =>
+            dispatch(
+              createUser({
+                name: "Prakash",
+                username: "prakash123",
+                email: "prakash@gmail.com",
+              }),
+            )
+          }
+        >
+          Add User
+        </button>
       </div>
       <table border={1}>
         <thead>
@@ -70,6 +90,29 @@ const User = () => {
                   onClick={() => dispatch(fetchSingleUser(user.id))}
                 >
                   View
+                </button>
+
+                <button
+                  className="btn"
+                  onClick={() => dispatch(deleteUSer(user.id))}
+                >
+                  Delete
+                </button>
+
+                <button
+                  className="btn"
+                  onClick={() =>
+                    dispatch(
+                      updateUser({
+                        name: "Prakash",
+                        username: "prakash123",
+                        email: "prakash@gmail.com",
+                        id: user.id,
+                      }),
+                    )
+                  }
+                >
+                  Update
                 </button>
               </td>
             </tr>
