@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
 import studentReducer from "../features/student/studentSlice";
 import userReducer from "../features/user/userSlice";
-import userDetailReducer from "../features/user/fetchSingleUser";
+import userDetailReducer from "../features/user/SingleUserSlice";
 
 export const store = configureStore({
   reducer: {

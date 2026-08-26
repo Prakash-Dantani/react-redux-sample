@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { clearUsers, fetchUsers } from "../../features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { fetchSingleUser } from "../../features/user/fetchSingleUser";
+import { fetchSingleUser } from "../../features/user/SingleUserSlice";
 
 const User = () => {
-  const users = useAppSelector((state) => state.user.users);
+  const { users, loading, error } = useAppSelector((state) => state.user);
 
   const dispatch = useAppDispatch();
 
@@ -13,6 +13,27 @@ const User = () => {
   }, [dispatch]);
 
   let serial = 1;
+
+  if (loading)
+    return (
+      <>
+        <h4>Loading User List</h4>
+      </>
+    );
+
+  if (error)
+    return (
+      <>
+        <h4>{`Error : ${error}`} </h4>
+      </>
+    );
+
+  if (!users.length)
+    return (
+      <>
+        <h4>No Record Found</h4>
+      </>
+    );
   return (
     <>
       <h2>User List</h2>
@@ -21,7 +42,7 @@ const User = () => {
           Clear List
         </button>
       </div>
-      <table>
+      <table border={1}>
         <thead>
           <tr>
             <th>Sr. No</th>

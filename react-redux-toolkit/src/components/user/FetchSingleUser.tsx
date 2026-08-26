@@ -11,11 +11,15 @@ const FetchSingleUser = () => {
       </>
     );
   if (loading) {
-    return "<h4>Loading Record...</h4>";
+    return (
+      <>
+        <h4>Loading Record...</h4>
+      </>
+    );
   }
   return (
     <>
-      <table>
+      <table border={1}>
         <thead>
           <tr>
             <th>ID </th>

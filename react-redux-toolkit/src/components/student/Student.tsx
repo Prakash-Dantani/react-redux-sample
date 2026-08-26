@@ -34,7 +34,7 @@ const Student = () => {
           Add Student
         </button>
       </div>
-      <table>
+      <table border={1}>
         <thead>
           <tr>
             <th>Sr. No</th>
