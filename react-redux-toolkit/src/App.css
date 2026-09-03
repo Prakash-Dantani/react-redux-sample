@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 .btn {
   width: auto;
   height: 30px;
